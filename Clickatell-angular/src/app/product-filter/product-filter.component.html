@@ -1,0 +1,11 @@
+<div class="  items-center justify-center flex flex-col md:flex-row  gap-3">
+     <select [formControl]="searchControl" class=" border rounded-md border-gray-300 p-2 w-full" >
+      <option value="">All</option>
+      <option value="men's clothing">Men's Clothing</option>
+      <option value="women's clothing">Women's clothing</option>
+      <option value="jewelery">Jewelery</option>
+      <option value="electronics">Electronics</option>
+     </select>
+    <input type="number" [formControl]="priceControl" placeholder="Max price" class=" border rounded-md border-gray-300 p-2 w-full"  />
+    <button (click)="applyFilter()" class=" bg-blue-900 text-white p-2 rounded-md font-semibold w-full">Apply Filter</button>
+  </div>

@@ -1,0 +1,20 @@
+<div class="body_container" >
+    <app-product-filter (filterChange)="applyFilter($event)"></app-product-filter>
+    <ng-template #loadingTemplate>
+        <p class="text-center my-20 animate-pulse text-2xl">Loading products...</p>
+      </ng-template>
+    <div class="grid md:grid-cols-4  mt-10 gap-5" *ngIf="!loading; else loadingTemplate">
+        <div *ngFor="let product of filteredProducts" class=" border rounded-md border-gray-300 p-5 hover:border-blue-400">
+            <img src="{{ product.image }}" class=" w-full h-48 object-contain" alt="">
+            <p class="text-2xl font-bold mt-3">${{product.price.toFixed(2)}}</p>
+            <p class=" text-gray-400 capitalize">{{product.category}}</p>
+            <h3 class=" text-blue-900 font-bold">
+                {{ product.title }}
+            </h3>
+            <!-- <div class="my-3 border rounded-md p-1 text-center font-semibold hover:text-white hover:bg-black cursor-pointer">Edit</div> -->
+        </div>
+    </div>
+    <div *ngIf="filteredProducts.length == 0 && !loading">
+        <p class="text-center my-20  text-2xl">No products...</p>
+    </div>
+</div>
